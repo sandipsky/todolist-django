@@ -6,12 +6,13 @@ from .forms import *
 def index(request):
     tasks = Task.objects.all()
     form = TaskForm()
+    count = Task.objects.filter(complete=False).count()
     if request.method == 'POST':
         form = TaskForm(request.POST)
         if form.is_valid():
             form.save()
         return redirect('/')
-    context = {'tasks':tasks, 'form':form}
+    context = {'tasks':tasks, 'form':form, 'count':count}
     return render(request, 'index.html', context)
 
 def update(request, pk):

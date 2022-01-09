@@ -21,11 +21,18 @@
         width: 100px;
         height: 40px;
     }
+    h1
+    {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 34px;
+        font-weight: bold;
+    }
     h3
     {
         text-align: center;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 30px;
+        font-size: 26px;
     }
     .input{
         width: 80%;
@@ -35,7 +42,6 @@
     p, span
     {
         font-size: 22px;
-        margin-bottom: 10px;
     }
     .btn1
     {
@@ -66,14 +72,14 @@
 <div class="center-box">
 
 
-<h3>My Todo List</h3>
+<h1>My Todo List</h1>
 
 <form method="post">
     {% csrf_token %}
     {{form.title}} 
     <input class="btn" type="submit" value="Add Task">
 </form>
-
+<h3>You have {{count}} pending Tasks!</h3>
 {% for task in tasks %}
 {% if task.complete == True %}
 <p>
@@ -84,7 +90,6 @@
 <a class="btn1" href="{% url 'update' task.id %}">Update</a>
 <a class="btn2" href="{% url 'delete' task.id %}">Delete</a>
 </p>
-<br>
 {% endfor %}
 
 </div>
