@@ -73,7 +73,10 @@
 
 
 <h1>My Todo List</h1>
-
+<!-- <form action="" method="get">
+    <input class="input" name="search" id="search" type="text" value="{{search}}">
+    <input type="submit" class="btn" value="Search">
+</form> -->
 <form method="post">
     {% csrf_token %}
     {{form.title}} 
@@ -94,3 +97,4 @@
 
 </div>
 </body>
+
